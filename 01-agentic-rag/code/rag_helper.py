@@ -72,7 +72,13 @@ class RAGBase:
             input=input_messages
         )
 
-        return response.output_text
+        response_dict={
+            "output_text": response.output_text,
+            "input_tokens_details": response.usage.input_tokens_details,
+        }
+        print (response_dict['input_tokens_details'])
+
+        return response_dict
 
     def rag(self, query):
         search_results = self.search(query)
