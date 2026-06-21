@@ -4,3 +4,6 @@ __pycache__/
 .envrc
 .tmp
 .env
+02-vector-search/code/llm-zoomcamp-onnx/models/*
+02-vector-search/code/llm-zoomcamp-onnx/uv.lock
+*.db

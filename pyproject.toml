@@ -10,9 +10,11 @@ dependencies = [
     "minsearch>=0.1.0",
     "openai>=2.41.1",
     "openai-agents>=0.17.4",
+    "psycopg[binary]>=3.3.4",
     "pydantic-ai>=1.107.0",
     "python-dotenv>=1.2.2",
     "requests>=2.34.2",
+    "sentence-transformers>=5.5.1",
     "sqlitesearch>=0.0.6",
     "toyaikit>=0.0.11",
 ]
