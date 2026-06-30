@@ -12,7 +12,7 @@ tasks:
     chatProvider:
       type: io.kestra.plugin.ai.provider.OpenAI
       apiKey: "{{ secret('OPENAI_API_KEY') }}"
-      modelName: gpt-5-mini
+      modelName: gpt-4o-mini
     contentRetrievers:
       - type: io.kestra.plugin.ai.retriever.TavilyWebSearch
         apiKey: "{{ secret('TAVILY_API_KEY') }}"

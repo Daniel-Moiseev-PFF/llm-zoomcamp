@@ -3,7 +3,7 @@ namespace: zoomcamp
 
 description: |
   This flow demonstrates RAG (Retrieval Augmented Generation) by ingesting Kestra release documentation and using it to answer questions accurately.
-  
+
   Compare this with 1_chat_without_rag.yaml to see the difference RAG makes!
 
 tasks:
@@ -11,9 +11,9 @@ tasks:
     type: io.kestra.plugin.ai.rag.IngestDocument
     description: Ingest Kestra 1.1 release notes to create embeddings
     provider:
-      type: io.kestra.plugin.ai.provider.GoogleGemini
-      modelName: gemini-embedding-001
-      apiKey: "{{ secret('GEMINI_API_KEY') }}"
+      type: io.kestra.plugin.ai.provider.OpenAI
+      modelName: text-embedding-3-small
+      apiKey: "{{ secret('OPENAI_API_KEY') }}"
     embeddings:
       type: io.kestra.plugin.ai.embeddings.KestraKVStore
     drop: true
@@ -24,13 +24,13 @@ tasks:
     type: io.kestra.plugin.ai.rag.ChatCompletion
     description: Query about Kestra 1.1 features with RAG context
     chatProvider:
-      type: io.kestra.plugin.ai.provider.GoogleGemini
-      modelName: gemini-2.5-flash
-      apiKey: "{{ secret('GEMINI_API_KEY') }}"
+      type: io.kestra.plugin.ai.provider.OpenAI
+      modelName: gpt-4o-mini
+      apiKey: "{{ secret('OPENAI_API_KEY') }}"
     embeddingProvider:
-      type: io.kestra.plugin.ai.provider.GoogleGemini
-      modelName: gemini-embedding-001
-      apiKey: "{{ secret('GEMINI_API_KEY') }}"
+      type: io.kestra.plugin.ai.provider.OpenAI
+      modelName: text-embedding-3-small
+      apiKey: "{{ secret('OPENAI_API_KEY') }}"
     embeddings:
       type: io.kestra.plugin.ai.embeddings.KestraKVStore
     systemMessage: |
@@ -38,7 +38,7 @@ tasks:
       Use the provided documentation to give accurate, specific answers.
       If you don't find the information in the context, say so.
     prompt: |
-      Which features were released in Kestra 1.1? 
+      Which features were released in Kestra 1.1?
       Please list at least 5 major features with brief descriptions.
 
   - id: log_results
@@ -46,6 +46,5 @@ tasks:
     message: |
       ✅ RAG Response (with retrieved context):
       {{ outputs.chat_with_rag.textOutput }}
-      
-      🎉 Note that this response is detailed, accurate, and grounded in the actual release documentation. Compare this with the output from 1_chat_without_rag.yaml!
 
+      🎉 Note that this response is detailed, accurate, and grounded in the actual release documentation. Compare this with the output from 1_chat_without_rag.yaml!
