@@ -29,7 +29,7 @@ tasks:
     provider:
       type: io.kestra.plugin.ai.provider.OpenAI
       apiKey: "{{ secret('OPENAI_API_KEY') }}"
-      modelName: gpt-4o-mini
+      modelName: gpt-4o
     prompt: "{{ inputs.research_topic }}"
     systemMessage: |
       You are a thorough research assistant. Follow this process:
@@ -40,13 +40,12 @@ tasks:
          - Key Findings (3-5 bullet points)
          - Detailed Analysis (2-3 paragraphs)
          - Sources (list URLs of key references)
-      4. Save the final report as 'research_report.md' in the /tmp directory
-         using the filesystem tool.
+      4. Save the final report using the filesystem write_file tool with path exactly '/tmp/research_report.md'. No other path is allowed.
       Important rules:
       - Always use the TavilyWebSearch content retriever to get current information
       - Do not make up or hallucinate information
       - Include specific examples and data points when available
-      - Always save the final report to research_report.md using the filesystem tool.
+      - Always save the final report using the filesystem write_file tool with path '/tmp/research_report.md' exactly.
     contentRetrievers:
       - type: io.kestra.plugin.ai.retriever.TavilyWebSearch
         apiKey: "{{ secret('TAVILY_API_KEY') }}"
