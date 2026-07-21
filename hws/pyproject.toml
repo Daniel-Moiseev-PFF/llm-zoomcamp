@@ -1,0 +1,22 @@
+[project]
+name = "llm-zoomcamp-2026-hws"
+version = "0.1.0"
+description = "LLM Zoomcamp 2026 homework environment"
+requires-python = ">=3.12"
+dependencies = [
+    "gitsource>=0.0.5",
+    "jupyter>=1.1.1",
+    "minsearch>=0.1.0",
+    "openai>=2.41.1",
+    "openai-agents>=0.17.4",
+    "pandas>=3.0.3",
+    "psycopg[binary]>=3.3.4",
+    "pydantic>=2.13.4",
+    "pydantic-ai>=1.107.0",
+    "python-dotenv>=1.2.2",
+    "requests>=2.34.2",
+    "sentence-transformers>=5.5.1",
+    "sqlitesearch>=0.0.6",
+    "toyaikit>=0.0.11",
+    "tqdm>=4.67.3",
+]
