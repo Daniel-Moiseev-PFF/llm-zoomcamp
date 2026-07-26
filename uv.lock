@@ -7,6 +7,12 @@ resolution-markers = [
     "sys_platform != 'emscripten' and sys_platform != 'win32'",
 ]
 
+[manifest]
+members = [
+    "llm-zoomcamp",
+    "llm-zoomcamp-hw5",
+]
+
 [[package]]
 name = "ag-ui-protocol"
 version = "0.1.19"
@@ -1721,6 +1727,29 @@ requires-dist = [
     { name = "sentence-transformers", specifier = ">=5.5.1" },
     { name = "sqlitesearch", specifier = ">=0.0.6" },
     { name = "toyaikit", specifier = ">=0.0.11" },
+]
+
+[[package]]
+name = "llm-zoomcamp-hw5"
+version = "0.1.0"
+source = { virtual = "05-monitoring/llm-zoomcamp-hw5" }
+dependencies = [
+    { name = "gitsource" },
+    { name = "minsearch" },
+    { name = "openai" },
+    { name = "opentelemetry-api" },
+    { name = "opentelemetry-sdk" },
+    { name = "python-dotenv" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "gitsource", specifier = ">=0.0.5" },
+    { name = "minsearch", specifier = ">=0.1.0" },
+    { name = "openai", specifier = ">=2.41.1" },
+    { name = "opentelemetry-api", specifier = ">=1.39.1" },
+    { name = "opentelemetry-sdk", specifier = ">=1.39.1" },
+    { name = "python-dotenv", specifier = ">=1.2.2" },
 ]
 
 [[package]]

@@ -18,3 +18,8 @@ dependencies = [
     "sqlitesearch>=0.0.6",
     "toyaikit>=0.0.11",
 ]
+
+[tool.uv.workspace]
+members = [
+    "05-monitoring/llm-zoomcamp-hw5",
+]
